@@ -31,7 +31,7 @@ inputs = [input_1, input_2, input_3, input_4]
 
 b1 = b2 = bb1 = 1
 
-print(f'b1 = {b1}')
+# print(f'b1 = {b1}')
 
 # my six
 wij_11 = random.uniform(-1, 1)
@@ -75,10 +75,16 @@ error = 100
 
 # while error > 1.1:
 
-for x in range(2):
+for x in range(100):
+
+    # will use this to store all my targets and predictions
+    y_k = []
 
     error = 0
 
+    random.shuffle(inputs)
+
+    # will run all the forward propagation
     for i in inputs:
 
         # print(i)
@@ -127,11 +133,23 @@ for x in range(2):
 
         y1 = 1/(1 + math.exp(-net_output_final))
 
+        y_k.append([t_1, y1])
+
         #  seems to be working :)
         print(f't1 = {t_1} & y1 = {y1}\n')
 
         # ERROR
         error = error + .5 * pow((t_1 - y1), 2)
+
+    # will run all the backward propagation
+    for j in y_k:
+
+        # print(f'j = {j}')
+        t_1 = j[0]
+
+        y_1 = j[1]
+
+        print(f't_1= {t_1} and y_1= {y_1}')
 
         # print(f'error = {error}\n')
 
