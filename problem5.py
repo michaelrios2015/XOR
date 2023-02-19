@@ -77,9 +77,6 @@ error = 100
 
 for x in range(100):
 
-    # will use this to store all my targets and predictions
-    y_k = []
-
     error = 0
 
     random.shuffle(inputs)
@@ -133,27 +130,16 @@ for x in range(100):
 
         y1 = 1/(1 + math.exp(-net_output_final))
 
-        y_k.append([t_1, y1])
-
         #  seems to be working :)
         print(f't1 = {t_1} & y1 = {y1}\n')
 
         # ERROR
         error = error + .5 * pow((t_1 - y1), 2)
 
-    # will run all the backward propagation
-    for j in y_k:
-
-        # print(f'j = {j}')
-        t_1 = j[0]
-
-        y_1 = j[1]
-
-        print(f't_1= {t_1} and y_1= {y_1}')
-
         # print(f'error = {error}\n')
 
         # DELTA K --- is this supposed to be in the same for loop... maybe I run all the data and adjust afterwards
+        # Does not seem to make a difference
         # so delta k will change the weights of all the hideen layer weights
         delta_k1 = y1 * (1 - y1) * (t_1 - y1)
 
