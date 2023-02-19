@@ -73,9 +73,9 @@ eta = .1
 
 error = 100
 
-# while error > 1.1:
+while error > .001:
 
-for x in range(100):
+    # for x in range(100000):
 
     error = 0
 
