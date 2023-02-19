@@ -31,6 +31,7 @@ inputs = [input_1, input_2, input_3, input_4]
 
 b1 = b2 = bb1 = 1
 
+print(f'b1 = {b1}')
 
 # my six
 wij_11 = random.uniform(-1, 1)
@@ -74,7 +75,7 @@ error = 100
 
 # while error > 1.1:
 
-for x in range(1):
+for x in range(2):
 
     error = 0
 
@@ -84,26 +85,30 @@ for x in range(1):
         # strictly the input
         z1 = i[0]
 
+        # print(f'z1 = {z1}')
+
         z2 = i[1]
 
+        # print(f'z2 = {z2}')
+
         # our target value
-        t_i = i[2]
+        t_1 = i[2]
+
+        # print(f't_1 = {t_1}')
 
         # making the hidden layer
 
-        # step one sum, names taken from professor
+        # STEO ONE SUM
 
-        net_output_1 = b1*wb1 + z1 * wij_11 + z2 * wij_21
+        net_output_1 = b1 * wb1 + z1 * wij_11 + z2 * wij_21
 
-        net_output_2 = b2*wb2 + z1 * wij_12 + z2 * wij_22
-
-        # just checking seems a ok so far
+        net_output_2 = b2 * wb2 + z1 * wij_12 + z2 * wij_22
 
         # print(f'\nnet_output1: {net_output_1}  \n')
 
         # print(f'net_output2: {net_output_2}  \n')
 
-        # sigmoid functions
+        # SIGMOID FUNCTIONS
 
         zz1 = 1/(1 + math.exp(-net_output_1))
         zz2 = 1/(1 + math.exp(-net_output_2))
@@ -112,27 +117,27 @@ for x in range(1):
 
         # print(f'zz2 = {zz2}\n')
 
-        # output layer sum
+        # OUTPUT LAYER SUM
 
         net_output_final = bb1 * wbb1 + zz1 * wjk_11 + zz2 * wjk_21
 
         # print(f'\nnet_output1: {net_output_final}  \n')
 
-        # sigmoid function final layer
+        # SIGMOID FUNCTION FINAL LAYER
 
         y1 = 1/(1 + math.exp(-net_output_final))
 
         #  seems to be working :)
-        print(f'{t_i} y1 = {y1}\n')
+        print(f't1 = {t_1} & y1 = {y1}\n')
 
-        # error also seems to be working should we multiple by .5 ????
-        error = error + .5 * pow((t_i - y1), 2)
+        # ERROR
+        error = error + .5 * pow((t_1 - y1), 2)
 
         # print(f'error = {error}\n')
 
-        # calculating the delta_k... so we adjust the weight after each iteration???
+        # DELTA K --- is this supposed to be in the same for loop... maybe I run all the data and adjust afterwards
         # so delta k will change the weights of all the hideen layer weights
-        delta_k1 = y1 * (1 - y1) * (t_i - y1)
+        delta_k1 = y1 * (1 - y1) * (t_1 - y1)
 
         # print(f'delta_k1 = {delta_k1}\n')
 
@@ -240,6 +245,3 @@ for x in range(1):
     print('----------------------------------------------')
 
     print(f'error = {error}\n')
-
-# break
-# ok got one round working now to try and put it in a loop
