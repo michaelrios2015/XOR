@@ -11,13 +11,38 @@ import random
 # these do not include the answers
 #  I think prof used something like input_1 = ([1, 1], 0 ) but can't really remember an array should be fine for the moment
 
+
+# # XOR
+
+# input_1 = [0, 0, 0]
+
+# input_2 = [0, 1, 1]
+
+# input_3 = [1, 0, 1]
+
+# input_4 = [1, 1, 0]
+
+
+# # AND
+
+# input_1 = [0, 0, 0]
+
+# input_2 = [0, 1, 0]
+
+# input_3 = [1, 0, 0]
+
+# input_4 = [1, 1, 1]
+
+# OR
+
 input_1 = [0, 0, 0]
 
 input_2 = [0, 1, 1]
 
 input_3 = [1, 0, 1]
 
-input_4 = [1, 1, 0]
+input_4 = [1, 1, 1]
+
 
 # so I can loop through
 
