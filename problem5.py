@@ -15,7 +15,7 @@ input_3 = [1, 0, 1]
 input_4 = [1, 1, 0]
 
 
-# # AND
+# AND
 
 # input_1 = [0, 0, 0]
 
@@ -93,6 +93,8 @@ eta = .1
 # need to start the error to get us into the while loop
 error = 100
 
+counter = 0
+
 while error > .0005:
 
     # reset the error to zero as we will calculate it each time
@@ -100,6 +102,8 @@ while error > .0005:
 
     # shuffles our inputs around, I think this is helpful but not entirely sure
     random.shuffle(inputs)
+
+    counter += 1
 
     for i in inputs:
 
@@ -258,23 +262,26 @@ while error > .0005:
 print(f'error = {error}\n')
 
 
-# print(f'wij_11 = {wij_11}')
+print(f'counter = {counter}\n')
 
-# print(f'wij_12 = {wij_12}')
 
-# print(f'wij_21 = {wij_21}')
+print(f'wij_11 = {wij_11}\n')
 
-# print(f'wij_22 = {wij_22}')
+print(f'wij_12 = {wij_12}\n')
 
-# print(f'wjk_11 = {wjk_11}')
+print(f'wij_21 = {wij_21}\n')
 
-# print(f'wjk_21 = {wjk_21}')
+print(f'wij_22 = {wij_22}\n')
 
-# print(f'wb1 = {wb1}')
+print(f'wjk_11 = {wjk_11}\n')
 
-# print(f'wb2 = {wb2}')
+print(f'wjk_21 = {wjk_21}\n')
 
-# print(f'wbb1 = {wbb1}')
+print(f'wb1 = {wb1}\n')
+
+print(f'wb2 = {wb2}\n')
+
+print(f'wbb1 = {wbb1}\n')
 
 # running one last time with the correct weights so I can get the final results for all the inputs
 
