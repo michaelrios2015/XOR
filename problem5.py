@@ -95,6 +95,10 @@ error = 100
 
 counter = 0
 
+# an array for our errors
+all_errors = []
+
+
 while error > .0005:
 
     # reset the error to zero as we will calculate it each time
@@ -256,6 +260,7 @@ while error > .0005:
 
         # print(f'wb2 = {wb2}\n')
 
+    all_errors.append(error)
 
 # print(f't1 = {t_1} & y1 = {y1}\n')
 
@@ -287,6 +292,7 @@ print(f'wbb1 = {wbb1}\n')
 
 error = 0
 
+
 for i in inputs:
 
     z1 = i[0]
@@ -307,10 +313,16 @@ for i in inputs:
     y1 = 1/(1 + math.exp(-net_output_final))
 
     #  seems to be working :)
-    print(f't1 = {t_1} & y1 = {y1}\n')
+    print(f't1 = {t_1} | x1 = {z1} | x2 = {z2} | y1 = {y1}\n')
 
     # ERROR
     error = error + .5 * pow((t_1 - y1), 2)
 
 
 print(f'error = {error}\n')
+
+
+# if you want to see more of the errors just use this
+# for i in range(len(all_errors)):
+#     if i % 1000 == 0:
+#         print(all_errors[i])
