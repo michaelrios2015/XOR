@@ -9,27 +9,16 @@ file = 'StarWars.csv'
 file1 = open(file, 'r')
 Lines = file1.readlines()
 
-data = []
+outdata = []
 
 i = 0
 
-with open('StarWars.csv', newline='') as csvfile:
+with open('StarWars.csv', mode='r') as csvfile:
     data = list(csv.reader(csvfile, delimiter=','))
 
     for row in data:
-        # print(len(row))
-        # break
-        # make question 1 into True and False
-        # if row[1] == 'Yes':
-        #     row[1] = True
-        # elif row[1] == 'No':
-        #     row[1] = False
-
-        # # make question 2 into True and False
-        # if row[2] == 'Yes':
-        #     row[2] = True
-        # elif row[2] == 'No':
-        #     row[2] = False
+        # if len(row) != 38:
+        #     print(len(row))
 
         # turns seen and fan of into True, False
         for k in range(1, 3):
@@ -69,16 +58,35 @@ with open('StarWars.csv', newline='') as csvfile:
         elif row[29] == "I don't understand this question":
             row[29] = 'DU'
 
-        if i == 18:
-            for j in range(len(row)):
-                # if row[j] == '':
-                print(row[j])
-            # print(len(row))
+        # shortens Income
+        if row[35] == "$0 - $24,999":
+            row[35] = 'IL1'
+        elif row[35] == "$25,000 - $49,999":
+            row[35] = 'IL2'
+        elif row[35] == "$50,000 - $99,999":
+            row[35] = 'IL3'
+        elif row[35] == "$100,000 - $149,999":
+            row[35] = 'IL4'
+        elif row[35] == "$150,000+":
+            row[35] = 'IL5'
 
-            # # print(row[0:9], row[19:25], row[25:26], row[53:68], row[79:80], date)
-            break
-            # data.append([row[0:9], row[19:25], row[25:26],
-            #              row[53:68], row[79:80], date])
+        # shortens Education
+        if row[36] == "Less than high school degree":
+            row[36] = 'E1'
+        elif row[36] == "High school degree":
+            row[36] = 'E2'
+        elif row[36] == "Some college or Associate degree":
+            row[36] = 'E3'
+        elif row[36] == "Bachelor degree":
+            row[36] = 'E4'
+        elif row[36] == "Graduate degree":
+            row[36] = 'E5'
+
+        # if i == 1187:
+        #     for j in range(len(row)):
+        #         print(row[j])
+        #     break
+        outdata.append([row])
 
         i += 1
 # # so seems to work would put in a temp table then switch to
@@ -94,3 +102,5 @@ with open('StarWars.csv', newline='') as csvfile:
 
 #     # writing the data rows
 #     csvwriter.writerows(data)
+
+print(outdata[-1])
